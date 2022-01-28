@@ -8,7 +8,7 @@ class Trie {
     insert(word) {
         let currentNode = this.root;
 
-        [...word].forEach(_char => {
+        [...word].map(_char => {
             if (!currentNode.children[_char]) {
                 currentNode.children = {
                     ...currentNode.children,
@@ -26,8 +26,8 @@ class Trie {
         let concatKeys = '';
         let results = false;
 
-        [...word].forEach(_char => {
-            Object.keys(currentNode.children).map((_key) => {
+        [...word].map(_char => {
+            Object.keys(currentNode.children).map(_key => {
                 if (_char === _key) {
                     concatKeys += _char;
                     currentNode = currentNode.children[_char];
